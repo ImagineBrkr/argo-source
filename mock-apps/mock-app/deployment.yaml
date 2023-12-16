@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mockapp
+  labels:
+    app: mockapp
+    env: test
+spec:
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: mockapp
+      env: test
+  template:
+    metadata:
+      labels:
+        app: mockapp
+        env: test
+    spec:
+      containers:
+        - name: mockapp
+          image: us-central1-docker.pkg.dev/playground-s-11-d8aac915/mockapp-repo/mockapp
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 1500Mi
+            requests:
+              cpu: 1000m
+              memory: 1000Mi
+          envFrom:
+          - configMapRef:
+              name: mockapp-config-map
+          - secretRef:
+              name: mockapp-secret
+          # livenessProbe:
+          #   failureThreshold: 3
+          #   initialDelaySeconds: 30
+          #   httpGet:
+          #     path: /taxes-api/actuator/health/liveness
+          #     port: http
+          # readinessProbe:
+          #   failureThreshold: 3
+          #   initialDelaySeconds: 30
+          #   httpGet:
+          #     path: /taxes-api/actuator/health/readinessState
+          #     port: http

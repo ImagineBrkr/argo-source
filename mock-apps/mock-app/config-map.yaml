@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mockapp-config-map
+data:
+  TIMEZONE: America/Lima
+  TEST: test
