@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: test-argo-repo
+  #NAMESPACE MUST BE WHERE ARGOCD IS
+  namespace: argocd
+spec:
+  project: default
+  source:
+    #CREDENTIALS ARE NEEDED
+    repoURL: git@github.com:srazzeto/argo-test.git
+    targetRevision: HEAD
+    #RELATIVE APP IN REPO
+    path: myapp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default

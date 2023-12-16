@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp
+spec:
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp
+        image: gcr.io/mystic-berm-384501/myapp@sha256:64ec3c6757590ff26eee45e808c52d1af18799334964635fe3a63956c0de4f54
+        ports:
+        - containerPort: 8888
