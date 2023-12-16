@@ -36,7 +36,7 @@ spec:
           - configMapRef:
               name: mockapp-config-map
           - secretRef:
-              name: mockapp-secret
+              name: mockapp-secrets
           # livenessProbe:
           #   failureThreshold: 3
           #   initialDelaySeconds: 30
