@@ -5,3 +5,4 @@ metadata:
 data:
   TIMEZONE: America/Lima
   TEST: test
+  CONFIG_VALUE: "this is a config"
