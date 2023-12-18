@@ -19,7 +19,8 @@ spec:
     spec:
       containers:
         - name: mockapp
-          image: us-central1-docker.pkg.dev/playground-s-11-d8aac915/mockapp-repo/mockapp
+          #image: us-central1-docker.pkg.dev/playground-s-11-d8aac915/mockapp-repo/mockapp
+          iamge: nginx
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
