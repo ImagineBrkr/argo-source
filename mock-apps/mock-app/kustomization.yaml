@@ -10,4 +10,4 @@ resources:
   - hpa.yaml
 images:
   - name: us-central1-docker.pkg.dev/playground-s-11-0ec6294c/mockapp-repo/mockapp
-    newTag: sha-ad9d69d
+    newTag: sha-37fc092
